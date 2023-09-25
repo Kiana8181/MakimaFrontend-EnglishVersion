@@ -1,0 +1,16 @@
+body {
+  overflow-x: hidden;
+}
+
+code {
+  font-family: "glory-regular.ttf" !important;
+}
+
+:root {
+  --bs-body-font-family: "glory-regular" !important;
+}
+
+@font-face {
+  font-family: "glory-regular";
+  src: local("glory-regular"), url(./Glory-Regular.ttf) format("truetype");
+}

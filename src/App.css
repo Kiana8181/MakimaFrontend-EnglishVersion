@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+}
+
+.landingPageBackgroundImage {
+  text-align: center;
+  background-image: url(./images/backgroundImage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .registerImage{
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .homepageCard {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .homepageCard {
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .homepageCard {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .homepageCard {
+    width: 65vw;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .homepageCard {
+    width: 25vw;
+  }
+}

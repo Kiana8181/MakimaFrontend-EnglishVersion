@@ -43,7 +43,8 @@ function App() {
             <Route path="/addCourse" element={<AddCourse/>} />
             <Route path="/seeFavoriteCourse" element={<SeeFavoriteCourse/>} />
             <Route path="/seeCourseStudent" element={<SeeCourseStudent/>} />
-            <Route path="/not-found" element={<NotFound />} />
+            {/* <Route path="/not-found" element={<NotFound />} /><Route path="/not-found" element={<NotFound />} /> */}
+
             {/* <Route path="*" element={<Navigate to="/not-found" />} /> */}
           </Routes>
         </BrowserRouter>

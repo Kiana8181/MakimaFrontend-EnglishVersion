@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../sevices/authService";
 import LoginImage from "../images/loginImage";
@@ -44,10 +44,11 @@ class Login extends Form {
   };
 
   doSubmit = async () => {
+    const navigate = useNavigate();
     try {
       const { data } = this.state;
       await auth.login(data.username, data.password);
-      window.location = "/profile";
+      navigate("/profile");
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }

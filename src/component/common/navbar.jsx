@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import auth from "../../sevices/authService";
 import logo from "../../images/navbarLogo.png";
 import icons from "./icons";
@@ -46,8 +46,9 @@ function Navbar({ navItems }) {
           <span
             style={{ color: "#C3CEDA", cursor: "pointer" }}
             onClick={() => {
+              const navigate = useNavigate();
               auth.logout();
-              window.location = "/";
+              navigate("/");
             }}
           >
             {icons.door()}Exit

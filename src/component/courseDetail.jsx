@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import auth from "../sevices/authService";
 import icons from "./common/icons";
 import CourseDetailForm from "./courseDetailForm";
@@ -37,8 +37,10 @@ function CourseDetail(props) {
   const [flag, setFlag] = useState(0);
 
   const addFavoriteCourse = () => {
+    const navigate = useNavigate();
+
     auth.addFavoriteCourse(currentUser.id, option.id);
-    window.location = "/seeCourseStudent";
+    navigate("/seeCourseStudent");
   };
 
   useEffect(() => {

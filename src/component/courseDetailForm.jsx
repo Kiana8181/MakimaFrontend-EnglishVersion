@@ -1,8 +1,9 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../sevices/authService";
 import Form from "./common/form";
+import Redirect from "./common/navigator";
 
 class CourseDetailForm extends Form {
   state = {
@@ -51,8 +52,6 @@ class CourseDetailForm extends Form {
   };
 
   doSubmit = async () => {
-    const navigate = useNavigate();
-
     try {
       const { name, stars, recours, comment } = this.state.data;
 
@@ -87,7 +86,7 @@ class CourseDetailForm extends Form {
         );
       }
 
-      navigate("/seeCourseStudent");
+      Redirect("/seeCourseStudent");
     } catch (ex) {
       toast.error("An unexpected error has occurred.");
     }

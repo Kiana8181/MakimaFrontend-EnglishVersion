@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import auth from "../sevices/authService";
 import RegisterImage from "../images/registerImage";
 import Form from "./common/form";
 import "../App.css";
+import Redirect from "./common/navigator";
 
 class RegisterUniversity extends Form {
   state = {
@@ -62,8 +63,6 @@ class RegisterUniversity extends Form {
   };
 
   doSubmit = async () => {
-    const navigate = useNavigate();
-
     try {
       const { universityName, phoneNumber, email, address, logo, password } =
         this.state.data;
@@ -85,7 +84,7 @@ class RegisterUniversity extends Form {
 
       const result2 = await auth.UniversitytRegister(formData);
 
-      navigate("/login");
+      Redirect("/login");
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }

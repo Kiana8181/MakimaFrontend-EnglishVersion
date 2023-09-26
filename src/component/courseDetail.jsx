@@ -6,6 +6,8 @@ import icons from "./common/icons";
 import CourseDetailForm from "./courseDetailForm";
 
 function CourseDetail(props) {
+  const navigate = useNavigate();
+
   const [option, setOption] = useState({
     id: "",
     name: "",
@@ -37,8 +39,6 @@ function CourseDetail(props) {
   const [flag, setFlag] = useState(0);
 
   const addFavoriteCourse = () => {
-    const navigate = useNavigate();
-
     auth.addFavoriteCourse(currentUser.id, option.id);
     navigate("/seeCourseStudent");
   };

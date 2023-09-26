@@ -2,7 +2,7 @@ import axios from "axios";
 import logger from "./logService";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/";
+axios.defaults.baseURL = "https://makima-zue4.onrender.com/";
 
 axios.interceptors.response.use(null, (error) => {
   const expectError =
@@ -12,7 +12,7 @@ axios.interceptors.response.use(null, (error) => {
 
   if (!expectError) {
     logger.log(error);
-    toast.error("خطای غیر منتظره ای رخ داده است");
+    toast.error("An unexpected error has occurred");
   }
 
   return Promise.reject(error);

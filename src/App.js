@@ -26,7 +26,7 @@ function App() {
     <React.Fragment>
       <ToastContainer />
       <main>
-        <BrowserRouter>
+        <BrowserRouter basename='/MakimaFrontend-EnglishVersion/#/'>
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />

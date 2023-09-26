@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/MakimaFrontend-EnglishVersion/static/css/main.8e4ecfeb.css",
+    "main.js": "/MakimaFrontend-EnglishVersion/static/js/main.a496c48f.js",
+    "static/js/787.17f52d63.chunk.js": "/MakimaFrontend-EnglishVersion/static/js/787.17f52d63.chunk.js",
+    "static/media/backgroundImage.jpg": "/MakimaFrontend-EnglishVersion/static/media/backgroundImage.5a56d90342619e876c73.jpg",
+    "static/media/mainLogo.png": "/MakimaFrontend-EnglishVersion/static/media/mainLogo.49ace4008a9165a40868.png",
+    "static/media/Glory-Regular.ttf": "/MakimaFrontend-EnglishVersion/static/media/Glory-Regular.c368854a0fbb9ee53b32.ttf",
+    "index.html": "/MakimaFrontend-EnglishVersion/index.html",
+    "main.8e4ecfeb.css.map": "/MakimaFrontend-EnglishVersion/static/css/main.8e4ecfeb.css.map",
+    "main.a496c48f.js.map": "/MakimaFrontend-EnglishVersion/static/js/main.a496c48f.js.map",
+    "787.17f52d63.chunk.js.map": "/MakimaFrontend-EnglishVersion/static/js/787.17f52d63.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e4ecfeb.css",
+    "static/js/main.a496c48f.js"
+  ]
+}

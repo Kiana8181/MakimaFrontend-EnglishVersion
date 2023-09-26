@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import NotFound from "./component/notFound";
 import Home from "./component/home";
@@ -26,7 +26,7 @@ function App() {
     <React.Fragment>
       <ToastContainer />
       <main>
-        <BrowserRouter basename='/MakimaFrontend-EnglishVersion/#/'>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
@@ -44,9 +44,9 @@ function App() {
             <Route path="/seeFavoriteCourse" element={<SeeFavoriteCourse/>} />
             <Route path="/seeCourseStudent" element={<SeeCourseStudent/>} />
             <Route path="/not-found" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/MakimaFrontend-EnglishVersion/#/" />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </main>
     </React.Fragment>
   );

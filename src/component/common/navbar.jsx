@@ -5,6 +5,8 @@ import logo from "../../images/navbarLogo.png";
 import icons from "./icons";
 
 function Navbar({ navItems }) {
+  const navigate = useNavigate();
+
   return (
     <div>
       <nav
@@ -46,7 +48,6 @@ function Navbar({ navItems }) {
           <span
             style={{ color: "#C3CEDA", cursor: "pointer" }}
             onClick={() => {
-              const navigate = useNavigate();
               auth.logout();
               navigate("/");
             }}

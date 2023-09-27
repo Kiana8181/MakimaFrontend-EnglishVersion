@@ -7,7 +7,6 @@ import ChooseUniversity from "./common/chooseUniversity";
 import RegisterImage from "../images/registerImage";
 import Form from "./common/form";
 import "../App.css";
-import Redirect from "./common/navigator";
 
 class RegisterProfessor extends Form {
   state = {
@@ -24,6 +23,7 @@ class RegisterProfessor extends Form {
       password: "",
     },
     errors: {},
+    valid: false,
   };
 
   validateProperty = (item, value) => {
@@ -111,13 +111,14 @@ class RegisterProfessor extends Form {
 
       const result2 = await auth.PorfessortRegister(formData);
 
-      Redirect("/login");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/login" />;
     if (auth.getCurrentUser()) return <Navigate to="/profile" />;
     return (
       <div className="d-flex align-items-stretch">

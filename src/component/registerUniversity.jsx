@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
+import { Navigate, navigate } from "react-router-dom";
 import auth from "../sevices/authService";
 import RegisterImage from "../images/registerImage";
 import Form from "./common/form";
 import "../App.css";
-import Redirect from "./common/navigator";
 
 class RegisterUniversity extends Form {
   state = {
@@ -19,6 +18,7 @@ class RegisterUniversity extends Form {
       logo: "",
     },
     errors: {},
+    valid: false,
   };
 
   validateAll = () => {
@@ -83,14 +83,14 @@ class RegisterUniversity extends Form {
       formData.append("user", result1.id);
 
       const result2 = await auth.UniversitytRegister(formData);
-
-      Redirect("/login");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/login" />;
     if (auth.getCurrentUser()) return <Navigate to="/profile" />;
     return (
       <div className="d-flex align-items-stretch">

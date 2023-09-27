@@ -5,7 +5,6 @@ import auth from "../sevices/authService";
 import Form from "./common/form";
 import ChooseUniversity from "./common/chooseUniversity";
 import AddCourseImage from "../images/addCourseImage";
-import Redirect from "./common/navigator";
 
 class AddCourse extends Form {
   state = {
@@ -34,6 +33,7 @@ class AddCourse extends Form {
         user: "",
       },
     ],
+    valid: false,
   };
 
   async componentDidMount() {
@@ -85,13 +85,14 @@ class AddCourse extends Form {
         result1.id
       );
 
-      Redirect("/profile");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/profile" />;
     if (!auth.getCurrentUser()) return <Navigate to="/login" />;
     return (
       <div>

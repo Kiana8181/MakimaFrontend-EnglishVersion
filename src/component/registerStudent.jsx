@@ -7,7 +7,6 @@ import RegisterImage from "../images/registerImage";
 import Form from "./common/form";
 import ChooseUniversity from "./common/chooseUniversity";
 import "../App.css";
-import Redirect from "./common/navigator";
 
 class RegisterStudent extends Form {
   state = {
@@ -24,6 +23,7 @@ class RegisterStudent extends Form {
       password: "",
     },
     errors: {},
+    valid: false,
   };
 
   validateProperty = (item, value) => {
@@ -112,13 +112,14 @@ class RegisterStudent extends Form {
 
       const result2 = await auth.studentRegister(body2);
 
-      Redirect("/login");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/login" />;
     if (auth.getCurrentUser()) return <Navigate to="/profile" />;
     return (
       <div className="d-flex align-items-stretch">

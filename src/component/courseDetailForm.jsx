@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../sevices/authService";
 import Form from "./common/form";
-import Redirect from "./common/navigator";
 
 class CourseDetailForm extends Form {
   state = {
@@ -14,6 +13,7 @@ class CourseDetailForm extends Form {
       name: "Anonymous",
     },
     errors: {},
+    valid: false,
   };
 
   validateProperty = (item, value) => {
@@ -86,13 +86,14 @@ class CourseDetailForm extends Form {
         );
       }
 
-      Redirect("/seeCourseStudent");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred.");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/seeCourseStudent" />;
     if (!auth.getCurrentUser()) return <Navigate to="/login" />;
     return (
       <div

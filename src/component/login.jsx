@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 import auth from "../sevices/authService";
 import LoginImage from "../images/loginImage";
 import Form from "./common/form";
-import Redirect from "./common/navigator";
 
 class Login extends Form {
   state = {
     data: { username: "", password: "" },
     errors: {},
+    valid: false,
   };
 
   validateAll = () => {
@@ -48,13 +48,14 @@ class Login extends Form {
     try {
       const { data } = this.state;
       await auth.login(data.username, data.password);
-      Redirect("/profile");
+      this.setState({ valid: true });
     } catch (ex) {
       toast.error("An unexpected error has occurred");
     }
   };
 
   render() {
+    if (this.state.valid) return <Navigate to="/profile" />;
     if (auth.getCurrentUser()) return <Navigate to="/profile" />;
     return (
       <div className="row" style={{ height: "100vh" }}>

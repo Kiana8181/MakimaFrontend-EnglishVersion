@@ -37,13 +37,19 @@ This frontend project is a comprehensive survey platform designed for university
 Before diving into the project, you can check out the UI/UX design on Figma:
 [View UI/UX Design](https://www.figma.com/file/0JEMhd6QNeWV94zptakUsI/Makima-English-version?type=design&node-id=0%3A1&mode=design&t=eToksLOJVGmsvtuS-1)
 
+<br />
+
 ### Backend Repository
 Makima's backend is implemented in Django. You can find the backend repository here:
 [Backend Repository](https://github.com/Kiana8181/MakimaBackend-EnglishVersion)
 
+<br />
+
 ### Live Demo
 You can test the Makima Frontend live on GitHub Pages:
 [Live Demo](https://kiana8181.github.io/MakimaFrontend-EnglishVersion/)
+
+<br />
 
 ### Test Users
 To test the application without registering, you can use the following test user accounts:

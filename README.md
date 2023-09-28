@@ -74,6 +74,8 @@ Please note that the server hosting the backend may be slow, so please be patien
 
 Follow these steps to clone and set up the Makima project on your local machine:
 
+### Prerequisites
+
 Make sure you have the following prerequisites installed on your system:
 
 - node v19.5.0

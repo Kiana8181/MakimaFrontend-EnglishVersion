@@ -4,7 +4,7 @@
     <img src="images/logo.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h3 align="center">Makima</h3>
+  <h3 align="center">Makima Frontend</h3>
 
   <p align="center">
     Welcome to the Makima Frontend project! This is the frontend part of the Makima web application. The project is for managing the survey system of universities using React.

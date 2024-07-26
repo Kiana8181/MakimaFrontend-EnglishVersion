@@ -5,7 +5,7 @@ import InputUpload from "./inputUpload";
 import TextareaInput from "./textareaInput";
 
 class Form extends Component {
-  state = { data: {}, errors: {} };
+  state = { data: {}, errors: {}, isLoading: false };
 
   handelChange = ({ currentTarget: input }) => {
     const data = { ...this.state.data };
@@ -39,6 +39,9 @@ class Form extends Component {
         type="submit"
         className="btn btn-primary col-12"
       >
+        {this.state.isLoading && (
+          <div class="spinner-border spinner-border-sm" role="status" />
+        )}
         {label}
       </button>
     );

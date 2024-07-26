@@ -11,11 +11,17 @@ class Login extends Form {
     data: { username: "", password: "" },
     errors: {},
     valid: false,
+    isLoading: false,
   };
 
   validateAll = () => {
-    return this.validateUsername(this.state.data.username) ||
+    console.log(
+      this.validateUsername(this.state.data.username),
       this.validatePassword(this.state.data.password)
+    );
+    return this.validateUsername(this.state.data.username) ||
+      this.validatePassword(this.state.data.password) ||
+      this.state.isLoading
       ? false
       : true;
   };
@@ -46,10 +52,13 @@ class Login extends Form {
 
   doSubmit = async () => {
     try {
+      this.setState({ isLoading: true });
       const { data } = this.state;
       await auth.login(data.username, data.password);
+      this.setState({ isLoading: false });
       this.setState({ valid: true });
     } catch (ex) {
+      this.setState({ isLoading: false });
       toast.error("An unexpected error has occurred");
     }
   };

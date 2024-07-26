@@ -14,6 +14,7 @@ class CourseDetailForm extends Form {
     },
     errors: {},
     valid: false,
+    isLoading: false,
   };
 
   validateProperty = (item, value) => {
@@ -35,7 +36,8 @@ class CourseDetailForm extends Form {
       (this.state.stars !== "" ||
         this.state.comment !== "" ||
         this.state.recours !== "") &&
-      validate
+      validate &&
+      !this.state.isLoading
     );
   };
 
@@ -53,6 +55,8 @@ class CourseDetailForm extends Form {
 
   doSubmit = async () => {
     try {
+      this.setState({ isLoading: true });
+
       const { name, stars, recours, comment } = this.state.data;
 
       const body = {
@@ -86,8 +90,11 @@ class CourseDetailForm extends Form {
         );
       }
 
+      this.setState({ isLoading: false });
+
       this.setState({ valid: true });
     } catch (ex) {
+      this.setState({ isLoading: false });
       toast.error("An unexpected error has occurred.");
     }
   };

@@ -34,6 +34,7 @@ class AddCourse extends Form {
       },
     ],
     valid: false,
+    isLoading: false,
   };
 
   async componentDidMount() {
@@ -50,7 +51,8 @@ class AddCourse extends Form {
       this.state.data.universityName !== "" &&
       this.state.data.name !== "" &&
       this.state.data.description !== "" &&
-      this.state.data.recours !== ""
+      this.state.data.recours !== "" &&
+      !this.state.isLoading
     );
   };
 
@@ -62,6 +64,8 @@ class AddCourse extends Form {
 
   doSubmit = async () => {
     try {
+      this.setState({ isLoading: true });
+
       const { name, description, recours, universityName } = this.state.data;
 
       const body = {
@@ -85,8 +89,11 @@ class AddCourse extends Form {
         result1.id
       );
 
+      this.setState({ isLoading: false });
+
       this.setState({ valid: true });
     } catch (ex) {
+      this.setState({ isLoading: false });
       toast.error("An unexpected error has occurred");
     }
   };

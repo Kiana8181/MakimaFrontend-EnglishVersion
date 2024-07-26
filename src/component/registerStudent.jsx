@@ -24,6 +24,7 @@ class RegisterStudent extends Form {
     },
     errors: {},
     valid: false,
+    isLoading: false,
   };
 
   validateProperty = (item, value) => {
@@ -53,7 +54,8 @@ class RegisterStudent extends Form {
   validateAll = () => {
     var validate =
       this.validateEmail(this.state.data.email) ||
-      this.validatePassword(this.state.data.password)
+      this.validatePassword(this.state.data.password) ||
+      this.state.isLoading
         ? false
         : true;
     return (
@@ -77,6 +79,8 @@ class RegisterStudent extends Form {
 
   doSubmit = async () => {
     try {
+      this.setState({ isLoading: true });
+
       const {
         firstName,
         lastName,
@@ -112,8 +116,11 @@ class RegisterStudent extends Form {
 
       const result2 = await auth.studentRegister(body2);
 
+      this.setState({ isLoading: false });
+
       this.setState({ valid: true });
     } catch (ex) {
+      this.setState({ isLoading: false });
       toast.error("An unexpected error has occurred");
     }
   };
